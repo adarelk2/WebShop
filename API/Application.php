@@ -33,7 +33,7 @@ class App
         }
     }
 
-    function excute()
+    function execute()
     {
         $msg = RESPONSE_ERROR;
         $state = false;
