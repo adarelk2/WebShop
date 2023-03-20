@@ -2,9 +2,7 @@
 class Model
 {
     function filter($_params = [], $_array_search)
-    {
-        $response = "לא נשלחו שדות לחיפוש";
-
+    {        
         foreach($_array_search as $key=>$val)
         {
             if(isset($_params[$key]))
@@ -21,6 +19,11 @@ class Model
        {
             $query = $this->db->select($_array_search, $this->table, false)->fetch_all(MYSQLI_ASSOC);
             $response = (count($query)) ? $query : [];
+       }
+       else
+       {
+            array_push($this->errors, "לא נשלחו שדות לחיפוש");
+            $response = $this;
        }
 
        return $response;

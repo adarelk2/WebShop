@@ -8,7 +8,7 @@ class App
     function __construct($_controller, $_method, $_params)
     {
         $filename = $_SERVER['DOCUMENT_ROOT']."/API/controllers/".$_controller.".controller.php";
-        $controllers = array("items"=>"Items_Controller");
+        $controllers = array("items"=>"Items_Controller", "categories"=>"Categories_Controller");
 
         if (file_exists($filename) && isset($controllers[$_controller])) 
         {
@@ -43,16 +43,22 @@ class App
         {
             $state = true;
             $function = STATUS_SUCCESS;
-
-            $method = $this->method;
-            $msg = $this->controller->$method();
-    
-            if(!$msg || isset($msg->errors) && !empty($msg->errors))
+            if(empty($this->controller->errors))
             {
-                if(isset($msg->errors))
+                $method = $this->method;
+                $msg = $this->controller->$method();
+                if(!$msg || isset($msg->errors) && !empty($msg->errors))
                 {
-                    $msg = implode(",",$msg->errors);
+                    if(isset($msg->errors))
+                    {
+                        $msg = implode(",",$msg->errors);
+                    }
+                    $state = false;
                 }
+            }
+            else
+            {
+                $msg = implode(",",$this->controller->errors);
                 $state = false;
             }
         }
