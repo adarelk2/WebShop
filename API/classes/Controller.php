@@ -11,7 +11,7 @@ class Controller
     function setModel($_model)
     {
         $filename = $_SERVER['DOCUMENT_ROOT']."/API/models/".$_model.".php";
-        $models = array("items.model" => "Items_Model", "categories.model"=>"Categories_Model");
+        $models = array("items.model" => "Items_Model", "categoires.model"=>"Categoires_Model", "orders.model"=>"Orders_Model");
 
         if (file_exists($filename)) 
         {
