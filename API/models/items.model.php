@@ -12,7 +12,7 @@ class Items_Model extends Model
 
     function filter($_params = [])
     {
-        $array_search = array("id"=>['i'], "category"=>['s'], 
+        $array_search = array("id"=>['i'], "category"=>['i'], 
         "active"=>['i'], "price"=>['i']);
 
         return parent::filter($_params, $array_search);
