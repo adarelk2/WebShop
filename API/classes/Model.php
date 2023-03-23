@@ -22,7 +22,7 @@ class Model
        }
        else
        {
-            array_push($this->errors, "לא נשלחו שדות לחיפוש");
+            array_push($this->errors, "No fields were sent to search");
             $response = $this;
        }
 
