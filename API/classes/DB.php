@@ -1,9 +1,8 @@
 <?php
 class DB
 {
+    public $mysqli;
     public $errors = [];
-    private $mysqli;
-
     function __construct()
     {
         global $con;
@@ -14,14 +13,7 @@ class DB
     {
         if ($Condition != null) 
         {
-            if ($MySQLSelectArray == null) 
-            {
-                $Condition = " where " . $Condition;
-            } 
-            else 
-            {
-                $Condition = " and " . $Condition;
-            }
+            $Condition = ($MySQLSelectArray == null && $Condition != null) ?  " where " . $Condition : " and " . $Condition;
         }
         if ($MySQLSelectArray == null) 
         {
@@ -41,8 +33,8 @@ class DB
 
         $stmt->execute();
         $result = $stmt->get_result();
-
-        return ($isNum) ? $result->num_rows : $stmt->get_result();
+        
+        return ($isNum) ? $result->num_rows : $result;
     }
 
     function insert($MySQLInsertArray, $TBName)
@@ -97,6 +89,7 @@ class DB
             $stmtUpdate->close();
             return true;
         }
+
         $stmtUpdate->close();
         return false;
     }

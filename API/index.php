@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config/db_config.php';
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/API/classes/Response.php";
