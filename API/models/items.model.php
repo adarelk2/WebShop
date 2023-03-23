@@ -1,9 +1,6 @@
 <?php
 class Items_Model extends Model
 {
-    public $db, $table;
-    public $errors = [];
-
     function __construct()
     {
         $this->db = new DB();
