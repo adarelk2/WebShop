@@ -3,14 +3,21 @@ allways when you used get,post function you get 3 variables, state,status,msg fr
 */
 class callAPI
 {
-    get(_url, _data) // _url = the url you want to send or get detalis, _data = object
+    #controller;
+    #url;
+    constructor(_url ,_controller)
     {
-        // console.log("Get Req123");
+        this.#controller = _controller;
+        this.#url = _url;
+    }
+    
+    get(_method, _params) // this.#url = the url you want to send or get detalis, _data = object
+    {
         return new Promise((resolve, reject) => {
             $.ajax({
-                url: _url,
+                url: this.#url,
                 method: "GET",
-                data: _data,
+                data: {controller: this.#controller, method:_method,params:_params},
                 success: function(res) {
                     try {
                         let data = JSON.parse(res);
@@ -35,13 +42,13 @@ class callAPI
             })
         })
     }
-    post(_url, _data)
+    post(_method, _params)
     {
         return new Promise((resolve, reject) => {
             $.ajax({
-                url: _url,
+                url: this.#url,
                 method: "POST",
-                data: _data,
+                data: {controller: this.#controller, method:_method,params:_params},
                 success: function(res) {
                     try {
                         let data = JSON.parse(res);
@@ -65,13 +72,13 @@ class callAPI
     }
 
 
-    postFile(_url, _data)
+    postFile(_method, _params)
     {
         return new Promise((resolve, reject) => {
             $.ajax({
-                url: _url,
+                url: this.#url,
                 method: "POST",
-                data: _data,
+                data: {controller: this.#controller, method:_method,params:_params},
                 contentType: false,
                 processData: false,
                 success: function(res) {
