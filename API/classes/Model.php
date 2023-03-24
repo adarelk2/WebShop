@@ -1,6 +1,8 @@
 <?php
 class Model
 {
+    public $errors = [];
+    
     function filter($_params = [], $_array_search)
     {        
         foreach($_array_search as $key=>$val)
