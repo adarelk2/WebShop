@@ -9,6 +9,12 @@ class Items_Model extends Model
 
     filterAPI(_params)
     {
+        for (const [key, value] of Object.entries(_params)) {
+           if(_params[key] == "")
+           {
+                delete _params[key];
+           }
+          }
         return this.API.get("getItems",_params).then(res=>res);
     }
 

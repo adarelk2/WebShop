@@ -1,4 +1,5 @@
 import Items_Model from "../models/items.model.js";
+import Categories_Model from "../models/categories.model.js";
 class createModel
 {
     model;
@@ -11,9 +12,9 @@ class createModel
     {
         const modelStorage = 
         {
-            items: new Items_Model()
+            items: new Items_Model(),
             // orders:  Orders_Model(),
-            // categories:  Categories_Model()
+            categories: new Categories_Model()
         }
 
         return  modelStorage[this.model];

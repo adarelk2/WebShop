@@ -50,25 +50,33 @@ class Items_List
         box.className = "col-xl-3 col-lg-3 col-md-6 col-sm-6";
 
         let glasses_box = document.createElement("div");
-        glasses_box.className = "glasses_box";
-        
+        glasses_box.className = "glasses_box";   
         glasses_box.innerHTML = `<figure><img src="${_item.img}" alt="#"></figure>
                             <h3><span class="blu">$</span>${_item.price}</h3>
                             <p>${_item.title}</p>`
 
-        let addToCartBTN = document.createElement("button");
+        let readDetails = document.createElement("span");
+        readDetails.innerHTML = "Read More<br>";
+        readDetails.style = "cursor:pointer;";
+        readDetails.addEventListener("click",()=>{
+            Swal.fire({
+                html:`<h3 class='text-center'>${_item.title}</h3><span>${_item.body}</span>`
+            });
+        })
 
+        let addToCartBTN = document.createElement("button");
         addToCartBTN.className = "btn";
         addToCartBTN.style = 'background-color:rgb(60,60,60);color:#fff;border-radius:8px;';
         addToCartBTN.innerHTML = "Add to cart";
         addToCartBTN.addEventListener("click", ()=>{
             this.cart.addItem({id:_item.id});
-            console.log(localStorage.getItem("cart"));
         })
 
+        $(glasses_box).append(readDetails);
         $(glasses_box).append(addToCartBTN);
 
         $(box).append(glasses_box);
+
         return box;
     }
 

@@ -73,6 +73,9 @@
                                  <a class="nav-link" href="about.php">About</a>
                               </li>
                               <li class="nav-item ">
+                                 <a class="nav-link" href="shop.php">Shop</a>
+                              </li>
+                              <li class="nav-item ">
                                  <a class="nav-link" href="cart.php">Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                               </li>
                               <li class="nav-item ">

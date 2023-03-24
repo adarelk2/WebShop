@@ -21,8 +21,10 @@ class Cart
 
     addItem(_item)
     {
-        this.myCart[_item.id] =_item;
+        let count = (_item.id in this.myCart) ? this.myCart[_item.id] : 0;
+        this.myCart[_item.id] = count + 1;
         this.#saveInLocalStorage();
+        
         Swal.fire({
             position: 'top-end',
             html: "<a href=cart.php><span style='color:#fff;'> Success click here for see your cart</span></a>",
