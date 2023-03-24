@@ -61,8 +61,9 @@ class Items_List
         addToCartBTN.className = "btn";
         addToCartBTN.style = 'background-color:rgb(60,60,60);color:#fff;border-radius:8px;';
         addToCartBTN.innerHTML = "Add to cart";
-        addToCartBTN.addEventListener("click", function(){
-            alert();
+        addToCartBTN.addEventListener("click", ()=>{
+            this.cart.addItem({id:_item.id});
+            console.log(localStorage.getItem("cart"));
         })
 
         $(glasses_box).append(addToCartBTN);

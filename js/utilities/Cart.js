@@ -19,9 +19,27 @@ class Cart
         return this.myCart;
     }
 
-    addItemToCart(_item)
+    addItem(_item)
     {
-        this.myCart.push(_item);
+        this.myCart[_item.id] =_item;
+        this.#saveInLocalStorage();
+        Swal.fire({
+            position: 'top-end',
+            html: "<a href=cart.php><span style='color:#fff;'> Success click here for see your cart</span></a>",
+            showConfirmButton: false,
+            timer: 3500
+          })
+    }
+
+    deleteItem(_id)
+    {
+        delete this.myCart[_id];
+        this.#saveInLocalStorage();
+    }
+
+    empty()
+    {
+        this.myCart = [];
         this.#saveInLocalStorage();
     }
 
