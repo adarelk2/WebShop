@@ -13,5 +13,10 @@ class Items_Controller extends Controller
     {
         return $this->model->filter($this->params);
     }
+
+    function getItemsByCart()
+    {
+       return $this->model->getItemsByCart($this->params);
+    }
 }
 ?>
