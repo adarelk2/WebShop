@@ -8,6 +8,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/API/classes/Controller.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/API/classes/DB.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/API/classes/Model.php';
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/API/consts/api_wallet.php';
+
 $response = new Response();
 $app = new App($_REQUEST['controller'], $_REQUEST['method'], $_REQUEST['params']);
 $result = $app->execute();
