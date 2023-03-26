@@ -52,7 +52,7 @@ class Items_List
         let glasses_box = document.createElement("div");
         glasses_box.className = "glasses_box";   
         glasses_box.innerHTML = `<figure><img src="${_item.img}" alt="#"></figure>
-                            <h3><span class="blu">$</span>${_item.price}</h3>
+                            <h3><span style='color:orange;'>$</span>${_item.price}</h3>
                             <p>${_item.title}</p>`
 
         let readDetails = document.createElement("span");

@@ -16,6 +16,7 @@
                         <div class="text-bg">
                            <h1> <span style="color:orange;">Welcome <br></span>To Our Sunglasses</h1>
                            <figure><img src="images/Product2.png" alt="#"/></figure>
+                           <a class="read_more" style='color:#fff;background-color:orange; border:0px solid;' href="shop.php">Order Now</a>
                         </div>
                      </div>
                   </div>
@@ -26,6 +27,7 @@
                         <div class="text-bg">
                            <h1> <span  style="color:orange;">Welcome <br></span>To Our Sunglasses 3</h1>
                            <figure><img src="images/Product4.png" alt="#"/></figure>
+                           <a class="read_more" style='color:#fff;background-color:orange; border:0px solid;' href="shop.php">Order Now</a>
                         </div>
                      </div>
                   </div>
@@ -77,14 +79,6 @@
          </div>
 
       <?php require_once $_SERVER['DOCUMENT_ROOT']."/include/footer.php";?>
-
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <!-- sidebar -->
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script> 
    </body>
 
    <script src="/js/Application/home.js?<?php echo rand(9999,455555);?>" type='module'></script>
