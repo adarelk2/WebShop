@@ -18,9 +18,8 @@ class Orders_Model extends Model
         return this.API.get("getOrders",_params).then(res=>res);
     }
 
-    createNewOrder(_params, _form)
+    createNewOrder(_params)
     {
-        _params.customerDetails = _form;
         return this.API.get("createOrder",_params).then(res=>res);
     }
 }

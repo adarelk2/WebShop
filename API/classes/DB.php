@@ -9,7 +9,7 @@ class DB
         $this->mysqli = $con;
     }
 
-    function select($MySQLSelectArray, $TBName, $isNum = true, $fields = '*', $Condition = null)
+    function select($MySQLSelectArray, $TBName, $isNum = true, $fields = '*', $Condition = null, $sortOrder = 'desc')
     {
         if ($Condition != null) 
         {
@@ -17,26 +17,25 @@ class DB
         }
         if ($MySQLSelectArray == null) 
         {
-            $stmt = $this->mysqli->prepare("SELECT $fields FROM " . $TBName . $Condition);
+            $stmt = $this->mysqli->prepare("SELECT $fields FROM " . $TBName . $Condition . " ORDER BY `id` " . $sortOrder);
         } 
         else 
         {
             $ColumnList = implode(" = ? AND ", array_keys($MySQLSelectArray));
             $ColumnList .= ' = ?';
-            $stmt = $this->mysqli->prepare("SELECT $fields FROM " . $TBName . " WHERE " . $ColumnList . $Condition);
+            $stmt = $this->mysqli->prepare("SELECT $fields FROM " . $TBName . " WHERE " . $ColumnList . $Condition . " ORDER BY `id` " . $sortOrder);
             $ValueList = array_values($MySQLSelectArray);
             $types = array_column($ValueList, 0);
             $bind = implode("", $types);
             $ValueToInsert = array_column($ValueList, 1);
             $stmt->bind_param($bind, ...$ValueToInsert);
         }
-
+    
         $stmt->execute();
         $result = $stmt->get_result();
         
         return ($isNum) ? $result->num_rows : $result;
     }
-
     function insert($MySQLInsertArray, $TBName)
     {
         $ColumnList = implode(",", array_keys($MySQLInsertArray));
