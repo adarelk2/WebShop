@@ -8,7 +8,12 @@ class App
     function __construct($_controller, $_method, $_params)
     {
         $filename = $_SERVER['DOCUMENT_ROOT']."/API/controllers/".$_controller.".controller.php";
-        $controllers = array("items"=>"Items_Controller", "categories"=>"Categories_Controller", "orders"=>"Orders_Controller");
+
+        $_SESSION['user'] = array();
+        $_SESSION['user']['rule'] = 2;
+        
+        $controllersFactory = new CreateControllers($_SESSION['user']);
+        $controllers = $controllersFactory->execute();
 
         if (file_exists($filename) && isset($controllers[$_controller])) 
         {
@@ -38,7 +43,7 @@ class App
         $msg = RESPONSE_ERROR;
         $state = false;
         $function = STATUS_SUCCESS;
-
+        
         if(empty($this->errors))
         {
             $state = true;
