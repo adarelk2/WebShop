@@ -14,11 +14,12 @@ class Orders_Model extends Model
         return parent::filter($_params, $array_search);
     }
 
-    function addNewOrderToDatabase($_details, $_invoice_ext, $_invoice_int, $_customerDetails)
+    function addNewOrderToDatabase($_details, $_invoice_ext, $_invoice_int, $_customerDetails, $_items)
     {
         $IP_Client = $_SERVER['REMOTE_ADDR'];
         $response = $this->db->insert(array("details"=>['s', json_encode($_details)], "invoice_ext"=>['s', $_invoice_ext], 
-        "invoice_int"=>['s', $_invoice_int], "customerDetails"=>['s', json_encode($_customerDetails)], "ip"=>['s', $IP_Client]), $this->table);
+        "invoice_int"=>['s', $_invoice_int], "customerDetails"=>['s', json_encode($_customerDetails)], 
+        "ip"=>['s', $IP_Client], "items"=>['s', json_encode($_items)]), $this->table);
     
         return $response;
     }

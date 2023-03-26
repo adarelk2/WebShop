@@ -1,7 +1,6 @@
 <?php
 class Orders_Controller extends Controller
 {
-    public $errors = array();
     public $params = "";
     
     function __construct($_params) 
@@ -16,7 +15,8 @@ class Orders_Controller extends Controller
 
         $IP_Client = $_SERVER['REMOTE_ADDR'];
         $lastOrdersByIP = $this->model->filter(array("ip"=>$IP_Client));
-        if(count($lastOrdersByIP))
+        $timeHelper = new TimeHelper(time());
+        if(count($lastOrdersByIP) && $timeHelper->hoursPassed($lastOrdersByIP[0]['created_at']) < LAST_HOUR)
         {
             array_push($this->errors, "Error, please try again later");
         }
@@ -32,9 +32,9 @@ class Orders_Controller extends Controller
             
             $this->setModel("items.model");
     
-            $items = $this->model->getItemsByCart(array_keys($this->params));
+            $items = $this->model->getItemsByCart(array_keys($this->params['items']));
             
-            $price = $this->createPrice($items, $this->params) / $btc;
+            $price = $this->createPrice($items, $this->params['items']) / $btc;
     
             $jsonForAPI = $this->createJsonForAPI($price);
     
@@ -42,7 +42,9 @@ class Orders_Controller extends Controller
             if($createPaymentRequest['data']['url'])
             {
                 $this->setModel("orders.model");
-                $this->model->addNewOrderToDatabase($createPaymentRequest, $createPaymentRequest['data']['id'], $createPaymentRequest['data']['invoice_id'], $this->params['customerDetails']);
+
+                $this->model->addNewOrderToDatabase($createPaymentRequest, $createPaymentRequest['data']['id'], $createPaymentRequest['data']['invoice_id'], 
+                $this->params['customerDetails'], $this->params['items']);
     
                 $response = $createPaymentRequest['data']['url'];
             }
