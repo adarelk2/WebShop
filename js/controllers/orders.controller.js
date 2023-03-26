@@ -6,9 +6,14 @@ class Orders_Controller extends Controller
         super("orders");
     }
 
-    createOrder(_params, _form)
+    createOrder(_items, _form)
     {
-        return this.model.createNewOrder(_params, _form).then(res=>res);
+        const API_BODY = 
+        {
+            items:_items,
+            customerDetails: _form
+        }
+        return this.model.createNewOrder(API_BODY).then(res=>res);
     }
 }
 

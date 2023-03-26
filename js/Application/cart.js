@@ -45,6 +45,7 @@ const declareViewEvent=()=>
             $(this).attr("disabled", false);
             if(res.state)
             {
+                cart.empty();
                 console.log(res.msg);
                 location.replace(res.msg);
             }
