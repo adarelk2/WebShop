@@ -1,4 +1,11 @@
 <?php
+if (!isset($_SESSION)) 
+{
+    $lifetime=36000;
+    session_set_cookie_params($lifetime);
+    session_start();
+}
+
 $DATABASE_HOST = "localhost";
 $DATABASE_USER = "root";
 $DATABASE_PASS = "root";

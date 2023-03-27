@@ -23,7 +23,8 @@ const declareViewEvent=()=>
             Email: $("#Email").val(),
             Country: $("#Country").val(),
             City: $("#City").val(),
-            Street: $("#Street").val()
+            Street: $("#Street").val(),
+            Telegram: $("#Telegram").val()
         }
 
         for (const [key, value] of Object.entries(form)) 

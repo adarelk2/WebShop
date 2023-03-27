@@ -1,7 +1,14 @@
 
       <?php require_once $_SERVER['DOCUMENT_ROOT']."/include/header.php";?>
       <?php require_once $_SERVER['DOCUMENT_ROOT']."/config/home.php";?>
-
+      <style>
+         .carousel-control-next:hover, .carousel-control-prev:hover
+         {
+            color:orange!important;
+            background-color:#fff!important;
+            border:1px solid orange!important;
+         }
+      </style>
       <section class="banner_main">
          <div id="banner1" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -9,33 +16,24 @@
                <li data-target="#banner1" data-slide-to="1"></li>
                <li data-target="#banner1" data-slide-to="2"></li>
             </ol>
-            <div class="carousel-inner">
+            <div class="carousel-inner mt-5">
                <div class="carousel-item active">
                   <div class="container">
                      <div class="carousel-caption">
                         <div class="text-bg">
-                           <h1> <span style="color:orange;">Welcome <br></span>To Our Sunglasses</h1>
-                           <figure><img src="images/Product2.png" alt="#"/></figure>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="container">
-                     <div class="carousel-caption">
-                        <div class="text-bg">
-                           <h1> <span  style="color:orange;">Welcome <br></span>To Our Sunglasses 3</h1>
-                           <figure><img src="images/Product4.png" alt="#"/></figure>
+                           <h1 style="color:orange;" class="p-0"> Flipper Zero</h1><span style='font-size:2em;color:rgb(43, 43, 43);'>Multi-tool Device for Geeks</span>
+                           <figure><img src="images/Product4.png" style='height:200px!important;' alt="#"/></figure>
+                           <a class="read_more" style='color:#fff;background-color:orange; border:0px solid;' href="shop.php">Order Now</a>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
-            <a class="carousel-control-prev" href="#banner1" role="button" data-slide="prev">
-            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            <!-- <a class="carousel-control-prev" href="#banner1" role="button" data-slide="prev">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> -->
             </a>
-            <a class="carousel-control-next" href="#banner1" role="button" data-slide="next">
-            <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            <!-- <a class="carousel-control-next" href="#banner1" role="button" data-slide="next">
+            <i class="fa fa-arrow-right" aria-hidden="true"></i> -->
             </a>
          </div>
       </section>
@@ -77,14 +75,6 @@
          </div>
 
       <?php require_once $_SERVER['DOCUMENT_ROOT']."/include/footer.php";?>
-
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <!-- sidebar -->
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script> 
    </body>
 
    <script src="/js/Application/home.js?<?php echo rand(9999,455555);?>" type='module'></script>

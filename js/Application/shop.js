@@ -41,7 +41,7 @@ const createCategoriesBTN = (_categories)=>
     _categories.map(category=>{
         let btn = document.createElement("button");
         btn.style = "background-color:rgb(60,60,60);color:#fff";
-        btn.className = "btn";
+        btn.className = "btn mb-3";
         btn.innerHTML = category.titleCategory;
         btn.addEventListener("click", ()=>{
             filters.category = category.id;
