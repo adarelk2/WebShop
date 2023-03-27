@@ -16,13 +16,7 @@
 
          <?php require_once $_SERVER['DOCUMENT_ROOT']."/include/footer.php";?>
 
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <!-- sidebar -->
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script>
+
    </body>
 
    <script src="/js/Application/shop.js?<?php echo rand(9999,455555);?>" type='module'></script>

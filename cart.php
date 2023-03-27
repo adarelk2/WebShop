@@ -20,6 +20,10 @@
                      <input type="email" class="form-control" id="Email" placeholder="Enter your email address">
                   </div>
                   <div class="form-group">
+                     <label for="Telegram">Telegram</label>
+                     <input type="text" class="form-control" id="Telegram" placeholder="Enter your telegram ">
+                  </div>
+                  <div class="form-group">
                      <label for="Country">Country</label>
                      <select class="form-control" id="Country">
                         <option value="">-- Select a country --</option>
@@ -42,19 +46,11 @@
             </div>
             
             <div class="text-center mb-3">
-               <button class="btn btn-primary" id="createOrder"> Pay with BTC</button>
+               <button class="btn btn-warning" id="createOrder"> Pay with BTC</button>
             </div>
          </div>
       </div>
          <?php require_once $_SERVER['DOCUMENT_ROOT']."/include/footer.php";?>
-
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
-      <!-- sidebar -->
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script>
    </body>
 
    <script src="/js/Application/cart.js?<?php echo rand(9999,455555);?>" type='module'></script>
