@@ -74,11 +74,14 @@ class callAPI
 
     postFile(_method, _params)
     {
+        _params.append('controller', this.#controller);
+        _params.append('method', _method);
+
         return new Promise((resolve, reject) => {
             $.ajax({
                 url: this.#url,
                 method: "POST",
-                data: {controller: this.#controller, method:_method,params:_params},
+                data:_params,
                 contentType: false,
                 processData: false,
                 success: function(res) {

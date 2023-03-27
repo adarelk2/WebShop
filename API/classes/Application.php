@@ -14,7 +14,6 @@ class App
         
         $controllersFactory = new CreateControllers($_SESSION['user']);
         $controllers = $controllersFactory->execute();
-
         if (file_exists($filename) && isset($controllers[$_controller])) 
         {
             require_once $_SERVER['DOCUMENT_ROOT']."/API/controllers/".$_controller.".controller.php";

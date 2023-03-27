@@ -1,7 +1,10 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config/db_config.php';
 require_once $_SERVER['DOCUMENT_ROOT']."/include/header.php";
+$_SESSION['user'] = array();
+$_SESSION['user']['rule'] = 2;
 ?>
+
 
 <section class="banner_main">
          <div id="banner1" class="carousel slide" data-ride="carousel">

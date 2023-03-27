@@ -7,7 +7,7 @@ if(!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['
 ?>
 
 <div class="glasses">
-         <div class="container row d-flex flex-wrap justify-content-around col-12 mb-3">
+         <div class="container row d-flex align-items-start flex-wrap justify-content-around col-12 mb-3">
             <div class="col-3 row flex-wrap" style='background-color:gray;color:#fff;'>
                 <div class="col-12 p-2 text-center"><a href='index.php'>Orders Log</a></div>
                 <div class="col-12 p-2 text-center"><a href='createCategory.php'>Create New Category</a></div>

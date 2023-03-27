@@ -32,5 +32,20 @@ class Items_Model extends Model
             array_push($this->errors, "Error, please try again");
         }    
     }
+
+    function createItem($_params)
+    {
+        $insert = $this->db->insert(array("category"=>['i', $_params['category']],"img"=>['s',$_params['fileName']],
+        "title"=>['s', $_params['title']], "body"=>['s', $_params['description']], "price"=>['i', $_params['price']],
+        "favorite"=>['i', ($_params['favorite'] == "true") ? 1 : 0]), $this->table);
+
+        if(!$insert)
+        {
+            array_push($this->errors, "Created prudct failed");
+        }
+  
+        return $insert;
+        
+    }
 }
 ?>

@@ -51,7 +51,7 @@ class Items_List
 
         let glasses_box = document.createElement("div");
         glasses_box.className = "glasses_box";   
-        glasses_box.innerHTML = `<figure><img src="${_item.img}" alt="#"></figure>
+        glasses_box.innerHTML = `<figure><div class="col-10"><img src="${_item.img}" alt="#" style='width:100%;height:25vh;'></div></figure>
                             <h3><span style='color:orange;'>$</span>${_item.price}</h3>
                             <p>${_item.title}</p>`
 
