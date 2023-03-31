@@ -63,7 +63,6 @@ const init = async()=>
             {
                 Swal.fire("error", res.msg, 'error')
             }
-     
         });
     });
 

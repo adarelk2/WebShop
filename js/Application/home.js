@@ -1,5 +1,5 @@
 import Items_Controller from "../controllers/items.controller.js?12"
-import Items_List from "../utilities/components/items_list.js?2";
+import Items_List from "../utilities/components/items_list.js?2344";
 import Cart from "../utilities/Cart.js?2";
 window.onload = async()=>
 {

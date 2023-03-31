@@ -9,6 +9,18 @@ class Orders_Controller extends Controller
         parent::__construct("orders.model"); 
     }
 
+    function getOrders()
+    {
+        if(!count($this->params))
+        {
+            return $this->model->getLastOrders();
+        }
+        else
+        {
+            return $this->model->filter($this->params);
+        }
+    }
+
     function createOrder()
     {
         $response = $this;
@@ -42,7 +54,7 @@ class Orders_Controller extends Controller
             if($createPaymentRequest['data']['url'])
             {
                 $this->setModel("orders.model");
-
+                $_SESSION['invoice_id'] = $createPaymentRequest['data']['invoice_id'];
                 $this->model->addNewOrderToDatabase($createPaymentRequest, $createPaymentRequest['data']['id'], $createPaymentRequest['data']['invoice_id'], 
                 $this->params['customerDetails'], $this->params['items']);
     

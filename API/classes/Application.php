@@ -9,9 +9,6 @@ class App
     {
         $filename = $_SERVER['DOCUMENT_ROOT']."/API/controllers/".$_controller.".controller.php";
 
-        $_SESSION['user'] = array();
-        $_SESSION['user']['rule'] = 2;
-        
         $controllersFactory = new CreateControllers($_SESSION['user']);
         $controllers = $controllersFactory->execute();
         if (file_exists($filename) && isset($controllers[$_controller])) 

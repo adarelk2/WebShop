@@ -1,22 +1,25 @@
 <?php
-class ItemsManager_Controller extends Controller
+require_once $_SERVER['DOCUMENT_ROOT'] . '/API/controllers/items.controller.php';
+class ItemsManager_Controller extends Items_Controller
 {
-    public $params = "";
-    
-    function __construct($_params) 
+    function updateItem()
     {
-        $this->params = $_params;
-        parent::__construct("items.model"); 
-    }
-
-    function getItems()
-    {
-        return $this->model->filter($this->params);
-    }
-
-    function getItemsByCart()
-    {
-       return $this->model->getItemsByCart($this->params);
+        $item = $this->model->filter(array("id"=>$this->params['id']))[0];
+        if($item['id'])
+        {
+            $updated = $this->model->updateItem($this->params);
+            if(!$updated)
+            {
+                $this->errors[] = "Update item was failed.";
+            }
+            
+            return $this;
+        }
+        else
+        {
+            $this->errors[] = "Item doesn't exist";
+            return $this;
+        }
     }
 
     function createNewPrudct()

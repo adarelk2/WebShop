@@ -1,10 +1,9 @@
 import Controller from "./controller.js";
 class Items_Controller extends Controller
 {
-    constructor(_controller = "items")
+    constructor(_model = "items")
     {
-        console.log(_controller);
-        super(_controller);
+        super(_model);
     }
 
     getItems(_params)

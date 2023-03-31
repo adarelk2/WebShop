@@ -3,10 +3,10 @@ class Categories_Controller extends Controller
 {
     public $params = "";
     
-    function __construct($_params) 
+    function __construct($_params, $_model = "categories.model") 
     {
         $this->params = $_params;
-        parent::__construct("categories.model"); 
+        parent::__construct($_model); 
     }
 
     function getCategories()

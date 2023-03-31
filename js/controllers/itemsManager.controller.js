@@ -5,10 +5,15 @@ class ItemsManager extends Items_Controller
     {
         super("itemsManager");
     }
-
+    
     createNewPrudct(_form)
     {
-        return this.model.API.postFile("createNewPrudct", _form).then(res=>res);
+        return this.model.createNewProduct(_form);
+    }
+
+    saveItem(_form)
+    {
+        return this.model.save(_form);
     }
 }
 

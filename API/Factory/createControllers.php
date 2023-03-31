@@ -9,13 +9,14 @@ class CreateControllers
  
  function execute()
  {
-   $storageOfControllers = array("items"=>"Items_Controller", "categories"=>"Categories_Controller", "orders"=>"Orders_Controller");
    switch($this->user['rule'])
    {
       case USER_MANAGER:
-         $storageOfControllers = array("items"=>"Items_Controller", "categories"=>"Categories_Controller", "orders"=>"Orders_Controller", "itemsManager"=>"ItemsManager_Controller");
+         $storageOfControllers = array("items"=>"Items_Controller", "categories"=>"Categories_Controller", 
+         "orders"=>"Orders_Controller", "itemsManager"=>"ItemsManager_Controller", "categoriesManager"=>"CategoriesManager_Controller");
          break;
       default:
+      $storageOfControllers = array("items"=>"Items_Controller", "categories"=>"Categories_Controller", "orders"=>"Orders_Controller");
       case USER_NORMAL:
          break;
    }

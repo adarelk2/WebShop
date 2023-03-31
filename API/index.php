@@ -7,7 +7,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/API/consts/orders.php';
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/API/Factory/createControllers.php';
 
-
 require_once $_SERVER['DOCUMENT_ROOT'] . "/API/classes/Response.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . '/API/classes/Application.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/API/classes/FileUpload.php';

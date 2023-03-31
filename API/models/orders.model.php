@@ -14,6 +14,11 @@ class Orders_Model extends Model
         return parent::filter($_params, $array_search);
     }
 
+    function getLastOrders($_limit = 20)
+    {
+        return $this->db->mysqli->query("SELECT * from orders where 1  order by id desc LIMIT $_limit")->fetch_all(MYSQLI_ASSOC);
+    }
+
     function addNewOrderToDatabase($_details, $_invoice_ext, $_invoice_int, $_customerDetails, $_items)
     {
         $IP_Client = $_SERVER['REMOTE_ADDR'];

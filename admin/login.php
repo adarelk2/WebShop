@@ -1,5 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config/db_config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/admin.php';
 require_once $_SERVER['DOCUMENT_ROOT']."/include/header.php";
 ?>
 
@@ -43,12 +44,40 @@ require_once $_SERVER['DOCUMENT_ROOT']."/include/header.php";
       </section>
       <!-- end banner -->
       <!-- about section -->
+        <div class="container mt-4">
+            <form method="POST">
+                <div class="form-group">
+                    <label for="Username">Username: </label>
+                    <input type="text" class="form-control" id="Username" name="Username">
+                </div>
 
+                <div class="form-group">
+                    <label for="Password">Password: </label>
+                    <input type="text" class="form-control" id="Password" name="Password">
+                </div>
+
+                <div class="mt-2 text-center mb-2">
+                    <input type="submit" value="Login" name="Login" class="btn btn-primary">
+                </div>
+            </form>
+            <?php
+                if(isset($_POST['Login']))
+                {
+                    if($_POST['Username'] == ADMIN_USERNAME && $_POST['Password'] == ADMIN_PASSWORD)
+                    {
+                        $_SESSION['user'] = array("rule"=>2);
+                        echo "<script>location.replace('/admin');</script>";
+                    }
+                    else
+                    {
+                        echo "<font color=red>Username or password is invalid.</font>";
+                    }
+                }
+     
+            ?>
+        </div>
       <!-- about section -->
       <!-- Our  Glasses section -->
-      <script src="/js/Application/admin/orders.js?<?php echo rand(9999,455555);?>" type=module></script>
-      <?php require_once $_SERVER['DOCUMENT_ROOT']."/include/adminNavbar.php";?>
-
 
 <?php
 require_once $_SERVER['DOCUMENT_ROOT']."/include/footer.php";

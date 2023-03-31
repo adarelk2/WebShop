@@ -1,7 +1,7 @@
 class Cart
 {
     key;
-    myCart = [];
+    myCart = {};
     constructor(_key = "cart")
     {
         this.key = _key;
@@ -41,7 +41,7 @@ class Cart
 
     empty()
     {
-        this.myCart = [];
+        this.myCart = {};
         this.#saveInLocalStorage();
     }
 

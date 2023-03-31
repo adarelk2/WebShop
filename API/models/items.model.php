@@ -33,6 +33,36 @@ class Items_Model extends Model
         }    
     }
 
+    function updateItem($_params)
+    {
+        $columnsUpdated = $this->createDefaultItem($_params);
+        return $this->db->update($columnsUpdated, $this->table, "where id=".$_params['id']);
+    }
+
+    function createDefaultItem($_form)
+    {
+        $json = array(
+            "category"=>['i', $_form['category']],
+            "title"=>['s', $_form['title']],
+            "body"=>['s', $_form['body']],
+            "price"=>['i', $_form['price']],
+            "img"=>['s', $_form['img']],
+            "favorite"=>['i', $_form['favorite']],
+            "active"=>['i',$_form['active']]);
+
+            foreach($json as $key=>$value)
+            {
+                if(!isset($_form[$key]))
+                {
+                    unset($json[$key]);
+                }
+            }
+
+            $json["updated_at"] = array('s',date("Y-m-d H:i:s"));
+
+            return $json;
+    }
+
     function createItem($_params)
     {
         $insert = $this->db->insert(array("category"=>['i', $_params['category']],"img"=>['s',$_params['fileName']],
@@ -41,7 +71,7 @@ class Items_Model extends Model
 
         if(!$insert)
         {
-            array_push($this->errors, "Created prudct failed");
+            array_push($this->errors, "Created Item was failed");
         }
   
         return $insert;
