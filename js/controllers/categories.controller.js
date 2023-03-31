@@ -1,9 +1,9 @@
 import Controller from "./controller.js";
 class Categories_Controller extends Controller
 {
-    constructor()
+    constructor(_model = "categories")
     {
-        super("categories");
+        super(_model);
     }
 
     getCategories(_params)

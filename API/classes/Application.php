@@ -8,7 +8,7 @@ class App
     function __construct($_controller, $_method, $_params)
     {
         $filename = $_SERVER['DOCUMENT_ROOT']."/API/controllers/".$_controller.".controller.php";
-        
+
         $controllersFactory = new CreateControllers($_SESSION['user']);
         $controllers = $controllersFactory->execute();
         if (file_exists($filename) && isset($controllers[$_controller])) 

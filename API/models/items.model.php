@@ -71,7 +71,7 @@ class Items_Model extends Model
 
         if(!$insert)
         {
-            array_push($this->errors, "Created prudct failed");
+            array_push($this->errors, "Created Item was failed");
         }
   
         return $insert;

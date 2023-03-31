@@ -9,6 +9,18 @@ class Orders_Controller extends Controller
         parent::__construct("orders.model"); 
     }
 
+    function getOrders()
+    {
+        if(!count($this->params))
+        {
+            return $this->model->getLastOrders();
+        }
+        else
+        {
+            return $this->model->filter($this->params);
+        }
+    }
+
     function createOrder()
     {
         $response = $this;
