@@ -8,9 +8,6 @@ class App
     function __construct($_controller, $_method, $_params)
     {
         $filename = $_SERVER['DOCUMENT_ROOT']."/API/controllers/".$_controller.".controller.php";
-
-        $_SESSION['user'] = array();
-        $_SESSION['user']['rule'] = 2;
         
         $controllersFactory = new CreateControllers($_SESSION['user']);
         $controllers = $controllersFactory->execute();

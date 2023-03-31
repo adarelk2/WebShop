@@ -12,7 +12,7 @@ if(!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['
                 <div class="col-12 p-2 text-center"><a href='index.php'>Orders Log</a></div>
                 <div class="col-12 p-2 text-center"><a href='createCategory.php'>Create New Category</a></div>
                 <div class="col-12 p-2 text-center"><a href='createItem.php'>Create New Item</a></div>
-                <div class="col-12 p-2 text-center"><a href='editItem.php'>Edit Item</a></div>
+                <div class="col-12 p-2 text-center"><a href='editItems.php'>Edit Items</a></div>
                 <div class="col-12 p-2 text-center"><a href='logout.php'>Logout</a></div>
 
             </div>

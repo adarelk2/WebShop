@@ -42,7 +42,7 @@ class Orders_Controller extends Controller
             if($createPaymentRequest['data']['url'])
             {
                 $this->setModel("orders.model");
-                $_SESSION['invoice'] = $createPaymentRequest['data']['id'];
+                $_SESSION['invoice_id'] = $createPaymentRequest['data']['invoice_id'];
                 $this->model->addNewOrderToDatabase($createPaymentRequest, $createPaymentRequest['data']['id'], $createPaymentRequest['data']['invoice_id'], 
                 $this->params['customerDetails'], $this->params['items']);
     
