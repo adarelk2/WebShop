@@ -6,7 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/include/header.php";
 <section class="banner_main">
          <div id="banner1" class="carousel slide" data-ride="carousel">
          </div>
-      </section>
+</section>
       <!-- end banner -->
       <!-- about section -->
 
