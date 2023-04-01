@@ -116,6 +116,7 @@ class Items_List {
   
     createItemDivForAdmin(_item) 
     {
+      console.log(_item);
         let box = document.createElement("div");
         box.className = "col-xl-3 col-lg-3 col-md-6 col-sm-6 mb-4";
 

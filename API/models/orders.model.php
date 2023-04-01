@@ -9,7 +9,7 @@ class Orders_Model extends Model
 
     function filter($_params = [])
     {
-        $array_search = array("status"=>['i']);
+        $array_search = array("status"=>['i'], "ip"=>['s']);
 
         return parent::filter($_params, $array_search);
     }
