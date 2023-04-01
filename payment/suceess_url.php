@@ -1,6 +1,6 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config/db_config.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/API/consts/api_wallet.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/api_wallet.php';
 
     $curl = curl_init();
     $json_wallet = json_encode(array("api_key"=>API_BTC_KEY, "password"=>API_BTC_PASSWORD, "invoice_id"=>"BTC005"));

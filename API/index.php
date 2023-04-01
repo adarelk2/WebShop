@@ -1,8 +1,8 @@
 <?php
 ini_set('display_errors', 0);
 require_once $_SERVER['DOCUMENT_ROOT'] . '/config/db_config.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/API/consts/api_wallet.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/API/consts/user.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/api_wallet.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/user.php';
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/API/Factory/createControllers.php';
 

@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/API/consts/user.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/user.php';
 if(!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['rule'] != 2))
 {
    echo "<script>location.replace('/admin/login.php');</script>";

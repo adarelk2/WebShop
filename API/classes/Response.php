@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/API/consts/response.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/config/response.php';
 Class Response
 {
     Public $status;
