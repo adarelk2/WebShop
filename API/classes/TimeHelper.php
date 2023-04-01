@@ -14,5 +14,12 @@ class TimeHelper
         $hours = ($this->timezone - $timestamp) / 3600;
         return intval($hours);
     }
+
+    public function minutesPassed($datetime)
+{
+    $timestamp = strtotime($datetime);
+    $minutes = ($this->timezone - $timestamp) / 60;
+    return intval($minutes);
+}
 }
 ?>
