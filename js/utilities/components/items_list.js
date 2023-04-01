@@ -124,6 +124,7 @@ class Items_List {
         let itemBox = document.createElement("div");
         itemBox.className = "glasses_box p-2";
         itemBox.innerHTML = `
+          <h3>${_item.id}</h3>
           <div class="form-group">
             <label for="title">Title: </label>
             <input type='text' data-item=${_item.id} id=title class='form-control title' value=${_item.title}>

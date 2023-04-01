@@ -20,6 +20,7 @@ const init = async()=>
 
 const createOrdersTable = (_orders)=>
 {
+    let statusOrder = ["pending", "success"]
     let table = document.createElement("table");
     table.className = "table";
     
@@ -32,22 +33,32 @@ const createOrdersTable = (_orders)=>
     <th>Telegram</th>
     <th>Address</th>
     <th>Invoice</th>
+    <th>items<small>(id/count)</small></th>
+    <th>Total</th>
     <th>Created at</th>`;
 
     let tbody = document.createElement("tbody");
     _orders.map(order=>{
-        console.log(order);
+        let items = JSON.parse(order.items);
+        let items_selected = []
+        for (const [key, value] of Object.entries(items)) {
+            items_selected.push(`${key}/${value}`);
+          }
+        let orderDetails = JSON.parse(order.details);
+        console.log(orderDetails);
         let customerDetails = JSON.parse(order.customerDetails);
         let Address = `${customerDetails.Country}, ${customerDetails.City} ${customerDetails.Street}`;
         let tr = document.createElement("tr");
         tr.innerHTML = `
         <td>${order.id}</td>
-        <td>${order.status}</td>
+        <td>${statusOrder[order.status]}</td>
         <td>${customerDetails.FullName}</td>
         <td>${customerDetails.Email}</td>
         <td>${customerDetails.Telegram}</td>
         <td>${Address}</td>
-        <td>${order.invoice_int}</td>
+        <td><a href='https://coinremitter.com/invoice/${order.invoice_ext}' target=_blank>${order.invoice_int}</a></td>
+        <td>${items_selected.join(", ")}</td>
+        <td>${orderDetails.data.total_amount.BTC}</td>
         <td>${order.created_at}</td>
         `
         $(tbody).append(tr);
